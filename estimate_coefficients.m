@@ -2,7 +2,8 @@ close all
 clear
 clc
 %% Load the data
-load('FAKE_DATA')
+% load('FAKE_DATA')
+FAKE_DATA = dlmread('FAKE_DATA.txt');
 %% Prepare for fitting
 x = FAKE_DATA(:,3); % x
 y = FAKE_DATA(:,4); % y
@@ -26,3 +27,5 @@ c = fitresult{1}.c;
 d = fitresult{2}.d;
 e = fitresult{2}.e;
 f = fitresult{2}.f;
+disp(gof(1))
+disp(gof(2))

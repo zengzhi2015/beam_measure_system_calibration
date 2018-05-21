@@ -46,4 +46,5 @@ axis equal
 grid on
 %% Save the measurement
 FAKE_DATA = [reshape(PHI_real,[length(phi)*length(theta),1]),reshape(THETA_real,[length(phi)*length(theta),1]),reshape(X_real,[length(phi)*length(theta),1]),reshape(Y_real,[length(phi)*length(theta),1])];
-save('FAKE_DATA','FAKE_DATA')
+% save('FAKE_DATA','FAKE_DATA')
+dlmwrite('FAKE_DATA.txt',FAKE_DATA)
