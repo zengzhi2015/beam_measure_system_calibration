@@ -3,10 +3,10 @@ clear
 clc
 %% Load the data
 % load('FAKE_DATA')
-FAKE_DATA = dlmread('FAKE_DATA.txt');
+FAKE_DATA = dlmread('D:\\记录\\标定记录1000ms.txt');
 %% Prepare for fitting
-x = FAKE_DATA(:,3); % x
-y = FAKE_DATA(:,4); % y
+x = FAKE_DATA(:,5); % x
+y = FAKE_DATA(:,6); % y
 phi = FAKE_DATA(:,1); % phi
 theta = FAKE_DATA(:,2); % theta
 %% Fitting
@@ -29,3 +29,13 @@ e = fitresult{2}.e;
 f = fitresult{2}.f;
 disp(gof(1))
 disp(gof(2))
+%%
+fileID = fopen('D:\\parameters\\parameters.txt','w');
+fprintf(fileID,'%10.20f\r\n',a);
+fprintf(fileID,'%10.20f\r\n',b);
+fprintf(fileID,'%10.20f\r\n',c);
+fprintf(fileID,'%10.20f\r\n',d);
+fprintf(fileID,'%10.20f\r\n',e);
+fprintf(fileID,'%10.20f\r\n',f);
+fclose(fileID);
+parameter_check = dlmread('D:\\parameters\\parameters.txt');
